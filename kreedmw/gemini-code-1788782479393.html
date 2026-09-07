@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlgebraAI - Socratic Math Tutor</title>
+
+  <!-- KaTeX CSS & JS for Rendering Mathematical Notation -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <h1>AlgebraAI</h1>
+      <p>Socratic Intelligent Tutoring System</p>
+    </header>
+
+    <!-- Problem Definition Card -->
+    <div class="problem-card">
+      <div class="topic-selector-container">
+        <span class="topic-label">Select Topic:</span>
+        <select id="topic-select" class="topic-select" onchange="handleTopicChange(event)">
+          <option value="SUBJECT_OF_FORMULA">Subject of Formula</option>
+          <option value="QUADRATICS">Quadratic Expressions</option>
+          <option value="EXPONENTIALS">Exponent Laws</option>
+        </select>
+      </div>
+
+      <div class="problem-statement">
+        <span id="problem-instruction">Rearrange the equation to isolate target variable x:</span>
+        <div id="target-formula" class="math-block"></div>
+      </div>
+    </div>
+
+    <!-- Socratic Stream Container -->
+    <div class="chat-container" id="chat-container">
+      <!-- Chat messages are generated dynamically via script.js -->
+    </div>
+
+    <!-- Interactive Input Section -->
+    <div class="input-container">
+      <form class="input-form" id="math-form" onsubmit="handleStepSubmit(event)">
+        <input 
+          type="text" 
+          id="student-input" 
+          class="input-field" 
+          placeholder="Type your algebraic step... (e.g. y^2 * b = x + a)" 
+          autocomplete="off"
+        />
+        <button type="submit" id="submit-btn" class="submit-btn">Submit Step</button>
+      </form>
+
+      <!-- Virtual Math Symbols Toolbar -->
+      <div class="symbol-toolbar">
+        <button type="button" class="symbol-btn" onclick="insertSymbol('^2')">x²</button>
+        <button type="button" class="symbol-btn" onclick="insertSymbol('√(')">√</button>
+        <button type="button" class="symbol-btn" onclick="insertSymbol(' / ')">÷</button>
+        <button type="button" class="symbol-btn" onclick="insertSymbol(' * ')">×</button>
+        <button type="button" class="symbol-btn" onclick="insertSymbol(' ± ')">±</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
